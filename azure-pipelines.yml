@@ -39,3 +39,12 @@ steps:
     publishLocation: 'pipeline'
   displayName: 'Publish npm artifact'
 
+- task: VeracodePipelineScan@0
+  inputs:
+    VeracodeAPIID: '$(vid)'
+    VeracodeAPIsecret: '$(vkey)'
+    fileToScan: '$(System.DefaultWorkingDirectory)/verademo.war'
+    breakPipeline: true
+    baselineFileGeneration: true
+    baselineFileStorageProject: 'Verademo_NodeGoat'
+    baselineFileStorageReponame: 'Verademo_NodeGoat'
